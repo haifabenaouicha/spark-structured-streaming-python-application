@@ -1,4 +1,4 @@
-# StreamFlex Project
+# A sample python spark structured streaming application deployed on Databricks
 Below are steps to build the project and run it using Databricks Rest API.
 
    1)run the  script build-artifact.sh
