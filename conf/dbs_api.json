@@ -1,0 +1,82 @@
+{
+  "name": "Stream_Demo",
+  "new_cluster": {
+    "spark_version": "5.3.x-scala2.11",
+    "node_type_id": "i3.xlarge",
+     "autoscale": {
+      "min_workers": 2,
+      "max_workers": 8
+    },
+    "spark_conf": {
+      "spark.executorEnv.PYSPARK_PYTHON": "python3",
+      "spark.executor.memory": "5G",
+      "spark.memory.offHeap.enabled": "true",
+      "spark.memory.offHeap.size": "5G",
+      "spark.executor.cores": "4",
+      "spark.executor.instances": "7",
+      "spark.driver.memory": "8G",
+      "spark.sql.shuffle.partitions": "2001",
+      "spark.rdd.compress": "true",
+      "spark.executor.memoryOverhead": "600",
+      "spark.driver.memoryOverhead": "3000",
+      "spark.app.name": "Stream_Demo",
+      "spark.scheduler.mode": "FAIR",
+      "optimize.sort.dynamic.partitionining": "true",
+      "spark.io.compression.codec": "snappy",
+      "spark.shuffle.consolidateFiles": "true",
+      "spark.cleaner.periodicGC.interval": "10min",
+      "spark.reducer.maxSizeInFlight": "96M"
+    },
+    "aws_attributes": {
+      "first_on_demand": 1,
+      "availability": "SPOT_WITH_FALLBACK",
+      "zone_id": "eu-west-1a",
+      "instance_profile_arn": "arn:aws:iam::321015171107:instance-profile/databricks-s3-access-rd",
+      "spot_bid_price_percent": 100,
+      "ebs_volume_count": 0
+    },
+    "spark_env_vars": {
+      "PYSPARK_PYTHON": "/databricks/python3/bin/python3"
+    },
+    "cluster_log_conf": {
+      "dbfs": {
+        "destination": "dbfs:/haifa/data/cluster_logs"
+      }
+    },
+    "init_scripts": [
+        {
+            "dbfs": {
+                "destination": "dbfs:/cicd/cluster_init/init.sh"
+            }
+        }
+    ]
+  },
+  "libraries": [
+    {
+      "egg": "dbfs:/artefacts/stremaflex-1.0.0-py3.6.egg"
+    },
+    {
+      "maven": {
+        "coordinates": "org.apache.spark:spark-streaming-kafka-0-8_2.11:2.4.1"
+      }
+    },
+
+     {
+      "pypi": {
+        "package": "kafka-python==1.4.7"
+      }
+    },
+
+     {
+      "pypi": {
+        "package": "pyhocon==0.3.51"
+      }
+    }
+  ],
+  "spark_python_task": {
+    "python_file": "dbfs:/artefacts/main.py",
+    "parameters": [
+      "/dbfs/artefacts/test.conf"
+    ]
+  }
+}

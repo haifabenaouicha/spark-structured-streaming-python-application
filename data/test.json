@@ -1,0 +1,139 @@
+{
+  "data": {
+    "indicator": {
+      "indicator": {
+      	"date":  2017-12-06
+        "id": "5c9e41e4884db700cfadaad8",
+        "name": "Surconsommation AD magasin, la nuit en semaine",
+        "link": {
+          "directoryId": "4777208",
+          "companyId": "5505"
+        },
+        "company": {
+          "id": "5505"
+        },
+        "directory": {
+          "id": "4777208"
+        },
+        "active": false,
+        "lastCheck": "2019-04-26T22:00:50.102+0000",
+        "root": {
+          "type": "GenericSurconsommationHeure",
+          "name": "",
+          "opts": [
+            {
+              "REF": "dayofweek",
+              "TYPE": "func",
+              "VALUE": {
+                "type": "ConstantText",
+                "name": "constant..",
+                "opts": [
+                  {
+                    "TYPE": "str",
+                    "REF": "value",
+                    "VALUE": "0 1 2 3 4 5"
+                  }
+                ]
+              }
+            },
+            {
+              "REF": "hours_begin",
+              "TYPE": "func",
+              "VALUE": {
+                "type": "ConstantText",
+                "name": "constant..",
+                "opts": [
+                  {
+                    "TYPE": "str",
+                    "REF": "value",
+                    "VALUE": "22:00:00"
+                  }
+                ]
+              }
+            },
+            {
+              "REF": "hours_end",
+              "TYPE": "func",
+              "VALUE": {
+                "type": "ConstantText",
+                "name": "constant..",
+                "opts": [
+                  {
+                    "TYPE": "str",
+                    "REF": "value",
+                    "VALUE": "03:00:00"
+                  }
+                ]
+              }
+            },
+            {
+              "REF": "counterid",
+              "TYPE": "func",
+              "VALUE": {
+                "type": "ConstantText",
+                "name": "constant..",
+                "opts": [
+                  {
+                    "TYPE": "str",
+                    "REF": "value",
+                    "VALUE": "{\"source\": \"raw\", \"pid\": \"5cc32a5b346036000f8c6902\", \"company_id\": 5505, \"param\": \"consumption.value\", \"directory_id\": 4777208}"
+                  }
+                ]
+              }
+            },
+            {
+              "REF": "field",
+              "TYPE": "func",
+              "VALUE": {
+                "type": "ConstantText",
+                "name": "constant..",
+                "opts": [
+                  {
+                    "TYPE": "str",
+                    "REF": "value",
+                    "VALUE": "energy"
+                  }
+                ]
+              }
+            },
+            {
+              "REF": "seuil",
+              "TYPE": "func",
+              "VALUE": {
+                "type": "Constant",
+                "name": "constant..",
+                "opts": [
+                  {
+                    "TYPE": "str",
+                    "REF": "value",
+                    "VALUE": 5000
+                  }
+                ]
+              }
+            },
+            {
+              "REF": "siteName",
+              "TYPE": "func",
+              "VALUE": {
+                "type": "ConstantText",
+                "name": "constant..",
+                "opts": [
+                  {
+                    "TYPE": "str",
+                    "REF": "value",
+                    "VALUE": "E. Leclerc Roques"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "type": "periodic",
+        "windowStart": "2015-07-01T22:00:00.000+0000",
+        "windowEnd": "2015-07-02T22:00:00.000+0000",
+        "__typename": "IndicatorPeriodic"
+      }
+    }
+  }
+}
+
